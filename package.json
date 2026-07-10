@@ -8,7 +8,10 @@
     "build": "pnpm tsc",
     "api": "node dist/api/server.js",
     "worker": "node dist/worker/worker.js",
-    "dev": "pnpm tsc && node dist/worker/worker.js"
+    "dev": "pnpm tsc && node dist/worker/worker.js",
+    "migration:create":"node-pg-migrate create",
+    "migration:up":"node-pg-migrate up",
+    "migration:down":"node-pg-migrate down"
   },
   "keywords": [],
   "author": "",
@@ -24,12 +27,15 @@
   "dependencies": {
     "amqplib": "2.0.1",
     "dotenv": "17.4.2",
-    "express": "5.2.1"
+    "express": "5.2.1",
+    "node-pg-migrate": "^8.0.4",
+    "pg": "8.22.0"
   },
   "devDependencies": {
     "@types/amqplib": "0.10.8",
     "@types/express": "5.0.6",
     "@types/node": "26.1.0",
+    "@types/pg": "8.20.0",
     "ts-node": "10.9.2",
     "typescript": "6.0.3"
   }
