@@ -1,11 +1,11 @@
 
 type SeriesDiscoverMessage = {
-    id: string,
+    id:     string,
     source: string,
-    title: string,
-    cover: string,
+    title:  string,
+    cover:  string,
     status: string,
-    url: string
+    url:    string
 }
 
 export default SeriesDiscoverMessage
