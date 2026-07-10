@@ -13,7 +13,7 @@ export class SeriesConsumer {
 
             RabbitClient.setPrefetch(channel, 1)
 
-            if(!queue_name) throw new Error("sin cola definida")
+            if(!queue_name) throw new Error("No channel defined")
 
             await RabbitClient.declareQueue(channel, queue_name)
             
