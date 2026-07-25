@@ -2,7 +2,7 @@ import { QueryResultRow, Pool } from 'pg'
 
 import { Config } from "../config/pg.config.js";
 
-export class ConnectionPg {
+export class ConnectionPg{
     private static config: Config = {
         user: process.env.PG_USER!,
         password: process.env.PG_PASSWORD!,
