@@ -9,7 +9,7 @@
     "api": "node dist/api/server.js",
     "worker": "node dist/worker/worker.js",
     "dev": "pnpm tsc && node dist/worker/worker.js",
-    "migration:create":"node-pg-migrate create",
+    "migration:create":"node-pg-migrate create -j ts",
     "migration:up":"node-pg-migrate up",
     "migration:down":"node-pg-migrate down"
   },
