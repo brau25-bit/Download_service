@@ -5,7 +5,8 @@ type SeriesDiscoverMessage = {
     title:  string,
     cover:  string,
     status: string,
-    url:    string
+    serie_url:    string,
+    system_path?: string
 }
 
 export default SeriesDiscoverMessage

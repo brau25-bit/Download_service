@@ -6,7 +6,7 @@ type SeriesResponse = {
     cover:  string,
     status: string,
     serie_url:    string,
-    system_path:    string,
+    system_path?:    string,
     created?: string,
     updated_at?: string
 }
