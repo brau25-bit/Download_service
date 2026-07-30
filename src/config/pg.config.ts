@@ -9,5 +9,6 @@ export type Config = {
     database?: string,
     statement_timeout?: number,
     query_timeout?: number,
-    connectionTimeoutMillis?: number
+    connectionTimeoutMillis?: number,
+    connectionString?: string
 }
