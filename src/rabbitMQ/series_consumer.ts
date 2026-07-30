@@ -26,9 +26,7 @@ export class SeriesConsumer {
 
                     await SeriesService.main(data)
 
-                    channel.ack(message)
-
-                    console.log("proceso terminado")                    
+                    channel.ack(message)              
                     
                 } catch (error) {
                     console.log(error)
