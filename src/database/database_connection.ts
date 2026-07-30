@@ -4,10 +4,7 @@ import { Config } from "../config/pg.config.js";
 
 export class ConnectionPg{
     private static config: Config = {
-        user: process.env.PG_USER!,
-        password: process.env.PG_PASSWORD!,
-        port: Number(process.env.PG_PORT)!,
-        database: process.env.PG_DB!,
+        connectionString: process.env.DATABASE_URL!
     }
 
     private static pool = new Pool(this.config)
