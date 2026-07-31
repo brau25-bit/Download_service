@@ -9,9 +9,9 @@
     "api": "node dist/api/server.js",
     "worker": "node dist/worker/worker.js",
     "dev": "pnpm tsc && node dist/api/server.js",
-    "migration:create":"node-pg-migrate create -j ts",
-    "migration:up":"node-pg-migrate up",
-    "migration:down":"node-pg-migrate down"
+    "migration:create": "node-pg-migrate create -j ts",
+    "migration:up": "node-pg-migrate up",
+    "migration:down": "node-pg-migrate down"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +29,8 @@
     "dotenv": "17.4.2",
     "express": "5.2.1",
     "node-pg-migrate": "^8.0.4",
-    "pg": "8.22.0"
+    "pg": "8.22.0",
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@types/amqplib": "0.10.8",
