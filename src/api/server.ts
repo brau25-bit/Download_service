@@ -1,0 +1,17 @@
+import manga_router from './routes/manga.routes.js';
+import chapter_router from './routes/chapter.routes.js';
+import { errorHandler } from './middleware/globlal-err-handler.js';
+
+import 'dotenv/config'
+import Express from 'express';
+
+const server = Express();
+
+server.use('/manga', manga_router);
+server.use('/chapter', chapter_router);
+
+server.use(errorHandler);
+
+server.listen(process.env.PORT, () => {
+    console.log("listening on http://localhost:", process.env.PORT)
+})
