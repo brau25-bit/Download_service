@@ -1,10 +1,11 @@
-import { QueryResultRow, Pool } from 'pg'
-
 import { Config } from "../config/pg.config.js";
+import 'dotenv/config'
+
+import { QueryResultRow, Pool } from 'pg'
 
 export class ConnectionPg{
     private static config: Config = {
-        connectionString: process.env.DATABASE_URL!
+        connectionString: String(process.env.DATABASE_URL)
     }
 
     private static pool = new Pool(this.config)
