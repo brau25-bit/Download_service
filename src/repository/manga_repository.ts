@@ -10,12 +10,8 @@ export class MangaRepository {
         const query: string = `
             SELECT * FROM series
         `;
-        
-        console.log("entrando repository")
 
         const result = await ConnectionPg.query<SeriesResponse>(query);
-
-        console.log(result.rows)
 
         return result.rows!;
     }
@@ -27,10 +23,8 @@ export class MangaRepository {
         `;
 
         const data: string[] = [id];
-
+          
         const result = await ConnectionPg.query<SeriesResponse>(query_id, data);
-
-        if(result.rowCount == 0) throw new Error("No data found");
 
         return result.rows[0]!;
     }
@@ -52,8 +46,26 @@ export class MangaRepository {
         return result.rows[0]!;
     }
 
-    static async getChapter(){
-        
+    static async getChapters(id: string): Promise<ChapterDTO[]>{
+        const query: string = `
+            SELECT * FROM chapters
+            WHERE(serie_id) = $1
+        `;
+
+       const result = await ConnectionPg.query<ChapterDTO>(query, [id]);
+       
+       return result.rows;
+    }
+
+    static async getChapterById(id: string): Promise<ImagesDTO[]>{
+        const query: string = `
+            SELECT * FROM images
+            WHERE(chapter_id) = $1
+        `;
+
+        const result = await ConnectionPg.query<ImagesDTO>(query, [id]);
+
+        return result.rows;
     }
 
     static async saveSerie(params: SeriesResponse){
