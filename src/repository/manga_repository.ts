@@ -6,10 +6,18 @@ import { Chapter } from "../models/data_models/chapter.models.js";
 
 export class MangaRepository {
 
-    static async getSeries(params: Chapter){
+    static async getSeries(): Promise<SeriesResponse[]>{
         const query: string = `
             SELECT * FROM series
         `;
+        
+        console.log("entrando repository")
+
+        const result = await ConnectionPg.query<SeriesResponse>(query);
+
+        console.log(result.rows)
+
+        return result.rows!;
     }
 
     static async getSerieById(id: string): Promise<SeriesResponse>{
