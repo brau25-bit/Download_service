@@ -26,14 +26,16 @@
   "type": "module",
   "dependencies": {
     "amqplib": "2.0.1",
+    "cors": "2.8.6",
     "dotenv": "17.4.2",
     "express": "5.2.1",
-    "node-pg-migrate": "^8.0.4",
+    "node-pg-migrate": "8.0.4",
     "pg": "8.22.0",
     "zod": "4.4.3"
   },
   "devDependencies": {
     "@types/amqplib": "0.10.8",
+    "@types/cors": "^2.8.19",
     "@types/express": "5.0.6",
     "@types/node": "26.1.0",
     "@types/pg": "8.20.0",
