@@ -1,8 +1,12 @@
 import { Downloader } from "../file-manager/downloader.js";
 import { MangaRepository } from "../repository/manga_repository.js";
 import { Chapter } from '../models/data_models/chapter.models.js';
+import { config } from "../config/config.js";
 
 export class ChapterService { 
+
+    private static path: string = config.series_path;
+
     static async main(msg: Chapter): Promise<string>{
         if(!msg) throw new Error("no message received");
 
@@ -18,20 +22,22 @@ export class ChapterService {
 
         if(!system_path) throw new Error("no path defined for this series");
 
-        const path_name: string = `chapter-${msg.chapter_number}`;
+        const path_name: string = `${system_path}/chapter-${msg.chapter_number}`;
         
-        const chapter_path = await Downloader.createDir(system_path!, path_name);
+        const path: string = this.path; 
+
+        const chapter_path = await Downloader.createDir(path, path_name);
 
         const chapter = {
             serie_id: serie.id,
             chapter_number: chapter_number,
             chapter_url: chapter_url,
-            system_path: chapter_path
+            system_path: path_name
         }
 
         const result = await MangaRepository.saveChapter(chapter);
 
-        if(!result) throw new Error("Not found");
+        if(!result) throw new Error("Not save properly");
 
         const {id} = result;
 
@@ -48,7 +54,7 @@ export class ChapterService {
                 chapter_id: id!,
                 img_number: page_number!,
                 img_url: chapter_url!,
-                system_path: chapter_path
+                system_path: path_name
             }
 
             await MangaRepository.saveChapterImages(data);

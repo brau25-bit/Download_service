@@ -30,7 +30,7 @@ export class SeriesService {
 
         const serie = {
             ...msg,
-            system_path: sys_path
+            system_path: msg.title
         }
 
         const result = await MangaRepository.saveSerie(serie);
