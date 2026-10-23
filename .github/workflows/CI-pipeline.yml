@@ -1,0 +1,24 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is making a pull-request
+
+on: 
+  pull_request:
+    branches:
+      - main
+      
+jobs:
+  CI-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: 'pnpm'
+          package-manager-cache: true
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
